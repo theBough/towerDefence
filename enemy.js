@@ -7,4 +7,8 @@ function Enemy(x,y,w,h){
   this.display = function(){
     rect(this.x, this.y, this.w, this.h)
   }
+  
+  this.followPath = function(){
+    this.x += 5
+  }
 }
