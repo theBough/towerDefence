@@ -12,5 +12,6 @@ function draw() {
   img.resize(400,400)
   image(img,0,0)
   e.display()
+  e.followPath()
   
 }
