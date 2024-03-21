@@ -3,7 +3,7 @@ let e;
 function setup() {
   createCanvas(400, 400);
   img = loadImage("towerGood.png")
-  e = new Enemy(0,159,20,20)
+  e = new Enemy(0,159,20,20,1)
 
 }
 
