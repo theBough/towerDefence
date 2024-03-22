@@ -15,6 +15,9 @@ function Cannon(x,y,w,h,img){
        mouseY > this.y &&
        mouseY < this.y + this.h){
       cursor("grab")
+    }else{
+      
+      cursor(ARROW)
     }
   }
 }
