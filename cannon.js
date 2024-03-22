@@ -4,6 +4,8 @@ function Cannon(x,y,w,h,img){
   this.w = w;
   this.h = h;
   this.img = loadImage(img)
+  this.over = false;
+  this.lock = false
   
   this.display = function(){
     this.img.resize(this.w, this.h);
@@ -15,8 +17,8 @@ function Cannon(x,y,w,h,img){
        mouseY > this.y &&
        mouseY < this.y + this.h){
       cursor("grab")
+      this.over = true
     }else{
-      
       cursor(ARROW)
     }
   }
