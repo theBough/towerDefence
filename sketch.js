@@ -16,11 +16,25 @@ function draw() {
   cannonStuff()
   
 }
+function mouseReleased(){
+  c.lock = false;
+}
+function mouseDragged(){
+  if(c.lock){
+    c.x = mouseX-10
+    c.y = mouseY-10
+  }
+}
+function mousePressed(){
+  if(c.over){
+    c.lock = true
+  }
+  
+}
 function cannonStuff(){
      c.display() 
     c.grab()
 }
-
 function enemyStuff(){
    e.display()
   e.followPath()
