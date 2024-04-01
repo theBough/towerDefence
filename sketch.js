@@ -3,13 +3,14 @@ let e;
 let c;
 let x;
 let revenue;
+let myFont;
 function setup() {
   createCanvas(500, 400);
   img = loadImage("towerGood.png");
   e = new Enemy(0, 159, 20, 20, 1);
   c = new Cannon(410, 50, 30, 30, "cannon.png");
-  revenue = 1;
-  
+  revenue = 100;
+  myFont = loadFont("Anta.ttf")
 }
 
 function draw() {
@@ -18,18 +19,14 @@ function draw() {
   image(img, 0, 0);
   enemyStuff();
   cannonStuff();
-  
-  /*
-  push()
-  angleMode(DEGREES)
-  translate(100,100)
-  rotate(x)
-  c.display()
-  rect(10,10,50,50)
-  pop()
-  x+=1
-  */
-  
+  textStuff()
+}
+function textStuff(){
+  fill("black")
+  textSize(10)
+  textFont(myFont)
+  text("revenue: " + revenue, 410,10)
+  text("cost: 1 ", 410,100)
 }
 function mouseReleased() {
   c.lock = false;
