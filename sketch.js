@@ -11,16 +11,18 @@ function setup() {
   c = new Cannon(410, 50, 30, 30, "cannon.png");
   revenue = 100;
   myFont = loadFont("Anta.ttf")
+  x=0
 }
-
 function draw() {
   background(220);
   img.resize(400, 400);
   image(img, 0, 0);
   enemyStuff();
   cannonStuff();
-  textStuff()
+  textStuff();
+ 
 }
+
 function textStuff(){
   fill("black")
   textSize(10)
@@ -31,7 +33,10 @@ function textStuff(){
 function mouseReleased() {
   c.lock = false;
   revenue -= 1
-  console.log(revenue )
+  c.xPlaced = c.x;
+  c.yPlaced = c.y;
+  c.isPlaced = true;
+  
 }
 function mouseDragged() {
   if (c.lock) {
@@ -46,7 +51,7 @@ function mousePressed() {
   
 }
 function cannonStuff() {
-  c.display(); 
+   c.display()
   c.grab();
 }
 function enemyStuff() {
