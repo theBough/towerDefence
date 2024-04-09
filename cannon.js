@@ -15,12 +15,25 @@ function Cannon(x,y,w,h,img){
     this.img.resize(this.w, this.h);
     if(this.isPlaced){
       push()
-      translate(this.xPlaced, this.yPlaced);
-      angleMode(DEGREES);
-      rotate(this.angle)
-      image(this.img, -15,-15);
+      translate(this.xPlaced, this.yPlaced)
+      angleMode(DEGREES)
+      this.rise = e.y - this.y
+      this.run = e.x - this.x
+      this.angle = Math.atan(this.rise / this.run)
+      this.angle = this.angle * 180 / Math.PI
+      if(this.rise <0 && this.run <0){
+        this.angle -= 90
+      }else if(this.rise <0 && this.run >0){
+        this.angle += 90
+      }else if(this.rise >0 && this.run >0){
+        this.angle += 90
+      }else if(this.rise >0 && this.run <0){
+        this.angle -= 90
+        
+      }
+      rotate(this.angle) 
+      image(this.img, -15, -15)
       pop()
-      this.angle += 1
     }else{
       image(this.img, this.x, this.y)
     }
