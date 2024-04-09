@@ -32,7 +32,7 @@ function Cannon(x,y,w,h,img){
         
       }
       rotate(this.angle) 
-      image(this.img, -15, -15)
+      image(this.img, -1 * this.w/2, -1 * this.h/2)
       pop()
     }else{
       image(this.img, this.x, this.y)
