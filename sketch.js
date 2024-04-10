@@ -25,7 +25,7 @@ function draw() {
 }
 
 function createEnemy(){
-  console.log("I create an enemy now")
+ 
   e.push(new Enemy(0,159,20,20,1))
 }
 
