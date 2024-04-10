@@ -1,5 +1,5 @@
 let img;
-let e;
+let e = [];
 let c;
 let x;
 let revenue;
@@ -7,7 +7,6 @@ let myFont;
 function setup() {
   createCanvas(500, 400);
   img = loadImage("towerGood.png");
-  e = new Enemy(0, 159, 20, 20, 1);
   c = new Cannon(410, 50, 30, 30, "cannon.png");
   revenue = 100;
   myFont = loadFont("Anta.ttf")
@@ -20,7 +19,14 @@ function draw() {
   enemyStuff();
   cannonStuff();
   textStuff();
- 
+  if(keyIsDown(83)){
+    setInterval(createEnemy,1000)
+  }
+}
+
+function createEnemy(){
+  console.log("I create an enemy now")
+  e.push(new Enemy(0,159,20,20,1))
 }
 
 function textStuff(){
@@ -55,6 +61,9 @@ function cannonStuff() {
   c.grab();
 }
 function enemyStuff() {
-  e.display();
-  e.followPath();
+  for(i=0 ; i<e.length ; i++){
+    e[i].display();
+    e[i].followPath();
+  }
+  
 }
