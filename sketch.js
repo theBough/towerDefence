@@ -2,15 +2,18 @@ let img;
 let e = [];
 let c;
 let x;
+let sendButton;
 let revenue;
 let myFont;
+
 function setup() {
   createCanvas(500, 400);
   img = loadImage("towerGood.png");
   c = new Cannon(410, 50, 30, 30, "cannon.png");
   revenue = 100;
   myFont = loadFont("Anta.ttf")
-  x=0
+  sendButton = createButton("send em");
+  
 }
 function draw() {
   background(220);
@@ -19,16 +22,16 @@ function draw() {
   enemyStuff();
   cannonStuff();
   textStuff();
-  if(keyIsDown(83)){
-    setInterval(createEnemy,1000)
-  }
+  sendButtonStuff();
 }
 
+function sendButtonStuff(){
+  sendButton.position(410, 150)
+}
 function createEnemy(){
  
   e.push(new Enemy(0,159,20,20,1))
 }
-
 function textStuff(){
   fill("black")
   textSize(10)
