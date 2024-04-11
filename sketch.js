@@ -27,6 +27,7 @@ function draw() {
 
 function sendButtonStuff(){
   sendButton.position(410, 150)
+  sendButton.style("background-color", "red")
 }
 function createEnemy(){
  
