@@ -28,6 +28,10 @@ function draw() {
 function sendButtonStuff(){
   sendButton.position(410, 150)
   sendButton.style("background-color", "red")
+  sendButton.mousePressed(()=>{
+    sendButton.hide();
+    setInterval(createEnemy,1000);
+  })
 }
 function createEnemy(){
  
