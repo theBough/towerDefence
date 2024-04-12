@@ -8,5 +8,7 @@ function Bullet(x,y,w,h,xSpeed, ySpeed){
   
   this.display = function(){
     rect(this.x, this.y, this.w, this.h)
+    this.x += this.xSpeed;
+    this.y += this.ySpeed
   }//end Display
 }//end Function
