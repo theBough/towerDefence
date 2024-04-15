@@ -7,6 +7,8 @@ let revenue;
 let myFont;
 let waveCount;
 let stopSending;
+let stopShooting;
+let b = []
 
 function setup() {
   createCanvas(500, 400);
@@ -25,6 +27,37 @@ function draw() {
   cannonStuff();
   textStuff();
   sendButtonStuff();
+  bulletStuff();
+}
+
+function createBullet(){
+  let xSpeed1;
+  let xSpeedAfter = 0
+  let ySpeedBefore;
+  let ySpeedAfter;
+  xSpeed1 = e[0].x - c.x;
+  ySpeedBefore = e[0].y - c.y;
+  ySpeedAfter = ySpeedBefore / xSpeed1;
+  if(ySpeedBefore>0){
+    if(ySpeedAfter<0){
+      ySpeedAfter *= -1
+    }
+  }else{
+    if(ySpeedAfter > 0){
+      ySpeedAfter *= -1
+    }
+  }
+  if(xSpeed1 < 0){
+    xSpeedAfter = -1
+  }else{
+    xSpeedAfter = 1
+  }
+  b.push(new Bullet(c.x, c.y ,5,5, xSpeedAfter, ySpeedAfter))
+}
+function bulletStuff(){
+  for(var i =0 ; i < b.length ; i++){
+    b[i].display();
+  }
 }
 function sendButtonStuff() {
   sendButton.position(410, 150);
@@ -32,6 +65,7 @@ function sendButtonStuff() {
   sendButton.mousePressed(() => {
     sendButton.hide();
     stopSending = setInterval(createEnemy, 1000);
+    stopShooting = setInterval(createBullet, 1000);
   });
 }
 function createEnemy() {
