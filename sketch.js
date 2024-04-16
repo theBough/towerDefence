@@ -57,6 +57,7 @@ function createBullet(){
 function bulletStuff(){
   for(var i =0 ; i < b.length ; i++){
     b[i].display();
+    b[i].collision();
   }
 }
 function sendButtonStuff() {
