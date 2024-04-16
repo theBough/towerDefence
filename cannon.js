@@ -18,8 +18,8 @@ function Cannon(x, y, w, h, img) {
         push();
         translate(this.xPlaced, this.yPlaced);
         angleMode(DEGREES);
-        this.rise = e[i].y - this.y;
-        this.run = e[i].x - this.x;
+        this.rise = e[0].y - this.y;
+        this.run = e[0].x - this.x;
         this.angle = Math.atan(this.rise / this.run);
         this.angle = (this.angle * 180) / Math.PI;
         if (this.rise < 0 && this.run < 0) {
