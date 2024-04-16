@@ -52,6 +52,8 @@ function createBullet(){
   }else{
     xSpeedAfter = 1
   }
+  xSpeedAfter *= 2
+  ySpeedAfter *= 2
   b.push(new Bullet(c.x, c.y ,5,5, xSpeedAfter, ySpeedAfter))
 }
 function bulletStuff(){
